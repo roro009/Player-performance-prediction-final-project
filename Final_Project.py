@@ -226,7 +226,7 @@ def convert_min_to_float(min_str):
 st.title('Basketball Player Performance Prediction')
 
 # File uploader
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = st.file_uploader("games_details.csv", type="csv")
 #if uploaded_file is not None:
     # Read data
     games_data = pd.read_csv(uploaded_file)
