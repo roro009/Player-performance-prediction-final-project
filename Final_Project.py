@@ -226,8 +226,8 @@ def convert_min_to_float(min_str):
 st.title('Basketball Player Performance Prediction')
 
 # File uploader
-uploaded_file = st.file_uploader('games_details.csv', type="csv")
-#if uploaded_file is not None:
+uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+if uploaded_file is not None:
     # Read data
     games_data = pd.read_csv(uploaded_file)
 
@@ -252,12 +252,12 @@ uploaded_file = st.file_uploader('games_details.csv', type="csv")
     model = RandomForestRegressor(n_estimators=100, random_state=42)
     model.fit(X_train, y_train)
 
-    #Making predictions and evaluating the model
+    # Making predictions and evaluating the model
     y_pred = model.predict(X_test)
     mse = mean_squared_error(y_test, y_pred)
     r2 = r2_score(y_test, y_pred)
 
-     Displaying the results
+    # Displaying the results
     st.write(f"Mean Squared Error: {mse}")
     st.write(f"R-squared: {r2}")
 
