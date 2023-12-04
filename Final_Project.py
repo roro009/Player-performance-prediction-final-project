@@ -278,11 +278,11 @@ from sklearn.impute import SimpleImputer
 def convert_min_to_float(min_str):
     if pd.isna(min_str):
         return None
-    try:
-        parts = min_str.split(':')
-        return int(parts[0]) + int(parts[1]) / 60
-    except:
-        return None
+        try:
+            parts = min_str.split(':')
+            return int(parts[0]) + int(parts[1]) / 60
+        except:
+            return None
 
 # Load and preprocess the data
 @st.cache
