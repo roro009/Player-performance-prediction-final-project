@@ -70,8 +70,12 @@ if uploaded_file is not None:
     features = games_data_merged[['MIN_avg', 'FGM_avg', 'FGA_avg', 'REB_avg', 'AST_avg', 'STL_avg', 'BLK_avg', 'TO_avg', 'PF_avg']]
     target = games_data_merged['PTS_avg']
 
+    # Imputing missing values in features
+    imputer = SimpleImputer(strategy='median')
+    features_imputed = imputer.fit_transform(features)
+
     # Splitting the data
-    X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+    X_train, X_test, y_train, y_test = train_test_split(features_imputed, target, test_size=0.2, random_state=42)
 
     # Model Training
     model = RandomForestRegressor(n_estimators=100, random_state=42)
@@ -85,6 +89,7 @@ if uploaded_file is not None:
     # Displaying the results
     st.write(f"Mean Squared Error: {mse}")
     st.write(f"R-squared: {r2}")
+
 
 
 
