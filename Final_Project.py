@@ -46,7 +46,7 @@
 import pandas as pd
 
 # Load the dataset
-game_details = pd.read_csv('C:/Users/rohan/OneDrive/Desktop/INTRO TO INFORMATICS/LAB/Data_for_project/archive/games_details.csv')
+game_details = pd.read_csv('games_details.csv')
 
 # Check for missing values
 for col in game_details:
