@@ -214,8 +214,8 @@ from sklearn.impute import SimpleImputer
 
 # Function to convert 'MIN' to float
 def convert_min_to_float(min_str):
-   if pd.isna(min_str):
-       return None
+    if pd.isna(min_str):
+        return None
     try:
         parts = min_str.split(':')
         return int(parts[0]) + int(parts[1]) / 60
